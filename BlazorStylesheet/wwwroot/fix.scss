@@ -1,0 +1,38 @@
+
+html[loading="hide"]{
+    display:none;
+}
+html[loading="loader"]::before{
+    content:'';
+    height:100vh !important;
+    width:100vw !important;
+    position:absolute !important;
+    top:0 !important;
+    left:0 !important;
+    background-color:white !important;
+    z-index:999999;
+
+}
+
+/* HTML: <div class="loader"></div> */
+html[loading="loader"]::after {
+    content : '';
+    position: absolute;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    aspect-ratio: 2;
+    --_g: no-repeat radial-gradient(circle closest-side,#000 90%,#0000);
+    background: var(--_g) 0% 50%, var(--_g) 50% 50%, var(--_g) 100% 50%;
+    background-size: calc(100%/3) 50%;
+    animation: animation 1s infinite linear;
+    z-index:9999999;
+}
+@keyframes animation {
+    20%{background-position:0%   0%, 50%  50%,100%  50%}
+    40%{background-position:0% 100%, 50%   0%,100%  50%}
+    60%{background-position:0%  50%, 50% 100%,100%   0%}
+    80%{background-position:0%  50%, 50%  50%,100% 100%}
+}

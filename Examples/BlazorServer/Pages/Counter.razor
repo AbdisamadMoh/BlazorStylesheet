@@ -15,20 +15,4 @@
     {
         currentCount++;
     }
-
-     [Inject]
- public Stylesheet sheet
- {
-     get; set;
- }
- protected override void OnAfterRender(bool firstRender)
- {
-
-     sheet["div"] = new Element()
-     {
-         Color = "red"
-     };
-     sheet.Build();
-     base.OnAfterRender(firstRender);
- }
 }

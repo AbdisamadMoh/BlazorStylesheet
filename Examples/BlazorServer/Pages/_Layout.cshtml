@@ -3,12 +3,12 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" loading="loader">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="~/" />
-    <script src="_content/BlazorStylesheet/BlazorStylesheet.js"></script>
+        <link href="_content/BlazorStylesheet/fix.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
     <link href="css/site.css" rel="stylesheet" />
     <link href="BlazorServer.styles.css" rel="stylesheet" />
@@ -29,5 +29,6 @@
     </div>
 
     <script src="_framework/blazor.server.js"></script>
+      <script src="_content/BlazorStylesheet/BlazorStylesheet.js"></script>
 </body>
 </html>

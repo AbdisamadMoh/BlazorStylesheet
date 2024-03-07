@@ -1,1 +1,10 @@
-[]
+﻿[
+  {
+    "outputFile": "wwwroot/BlazorStylesheet.es5.js",
+    "inputFile": "wwwroot/BlazorStylesheet.js"
+  },
+  {
+    "outputFile": "wwwroot/fix.css",
+    "inputFile": "wwwroot/fix.scss"
+  }
+]

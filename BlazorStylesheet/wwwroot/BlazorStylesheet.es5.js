@@ -1,9 +1,10 @@
-﻿
+﻿"use strict";
+
 window.updateStylesheet = function (stylesheet) {
     removeStylesheet();
     addStylesheet(stylesheet);
     console.log("loaded");
-}
+};
 
 function removeStylesheet() {
     var styles = document.querySelectorAll('[BlazorStylesheet="true"]');
@@ -21,7 +22,7 @@ function addStylesheet(stylesheet) {
         style.innerHTML = stylesheet;
         head.appendChild(style);
     }
-   removeLoader();
+    removeLoader();
     //console.log(stylesheet);
 }
 
@@ -29,6 +30,7 @@ function removeLoader() {
     document.documentElement.removeAttribute("loading");
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
-     //removeLoader();
+document.addEventListener("DOMContentLoaded", function (event) {
+    //removeLoader();
 });
+
