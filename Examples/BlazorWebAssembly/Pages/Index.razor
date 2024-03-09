@@ -8,7 +8,6 @@
 	<a href="#">Portefolio</a>
 	<a href="#">Contact</a>
 </nav>
-
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
@@ -16,20 +15,14 @@ Welcome to your new app.
 <SurveyPrompt Title="How is Blazor working for you?" />
 
 @code{
-
     [Inject]
     public BlazorStylesheet.Stylesheet sheet
     {
         get; set;
     }
-     [Inject]
- public IJSRuntime js
- {
-     get; set;
- }
-    protected override void OnAfterRender(bool firstRender)
-    {
+        protected override void OnAfterRender(bool firstRender)
+        {
         sheet.CreateSheet(typeof(Style));
-        base.OnAfterRender(firstRender);
-    }
+            base.OnAfterRender(firstRender);
+        }
 }

@@ -1,8 +1,9 @@
 ﻿using BlazorStylesheet;
 
 using StylesheetNET;
-namespace BlazorServer
+namespace BlazorWebAssembly
 {
+
     public class Style
     {
         Stylesheet sheet;

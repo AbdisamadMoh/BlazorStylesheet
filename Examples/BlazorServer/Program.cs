@@ -3,6 +3,7 @@ using BlazorServer.Data;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using BlazorStylesheet;
+using BlazorServer;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
