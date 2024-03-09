@@ -20,9 +20,6 @@
     <Content Update="wwwroot\BlazorStylesheet.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\BlazorStylesheet.min.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Update="wwwroot\fix.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

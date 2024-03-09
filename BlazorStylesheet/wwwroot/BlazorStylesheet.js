@@ -1,4 +1,4 @@
-﻿
+﻿"use srtict"
 window.updateStylesheet = function (stylesheet) {
     removeStylesheet();
     addStylesheet(stylesheet);
