@@ -7,7 +7,7 @@
 
     <main>
         <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
         </div>
 
         <article class="content px-4">
@@ -22,15 +22,32 @@
         </article>
     </main>
 </div>
+
 @code{
+
     [Inject]
     public BlazorStylesheet.Stylesheet sheet
     {
         get; set;
     }
-        protected override void OnAfterRender(bool firstRender)
-        {
+    [Inject]
+    public IJSRuntime js
+    {
+        get; set;
+    }
+    protected override void OnAfterRender(bool firstRender)
+    {
         sheet.CreateSheet(typeof(Style));
-            base.OnAfterRender(firstRender);
+        base.OnAfterRender(firstRender);
+
+        if (firstRender)
+        {
+            sheet["body"] = new StylesheetNET.Element()
+            {
+                BackgroundColor = "red"
+            };
+            sheet.Build();
         }
+
+    }
 }

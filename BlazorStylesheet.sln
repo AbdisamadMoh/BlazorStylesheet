@@ -13,7 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWeb", "BlazorWeb\Blaz
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWeb.Client", "BlazorWeb\BlazorWeb.Client\BlazorWeb.Client.csproj", "{EF1E8C56-4553-4808-B838-ACA105A5FA74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssembly", "Examples\BlazorWebAssembly\BlazorWebAssembly.csproj", "{75133D84-42C7-460F-A5D6-3FD5ECAE459C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWebAssembly", "Examples\BlazorWebAssembly\BlazorWebAssembly.csproj", "{75133D84-42C7-460F-A5D6-3FD5ECAE459C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiAppBlazor", "Examples\MauiAppBlazor\MauiAppBlazor.csproj", "{2B9FA26C-BBA8-4FA4-BB70-1884860CF196}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,12 @@ Global
 		{75133D84-42C7-460F-A5D6-3FD5ECAE459C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75133D84-42C7-460F-A5D6-3FD5ECAE459C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75133D84-42C7-460F-A5D6-3FD5ECAE459C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B9FA26C-BBA8-4FA4-BB70-1884860CF196}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B9FA26C-BBA8-4FA4-BB70-1884860CF196}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B9FA26C-BBA8-4FA4-BB70-1884860CF196}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2B9FA26C-BBA8-4FA4-BB70-1884860CF196}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B9FA26C-BBA8-4FA4-BB70-1884860CF196}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B9FA26C-BBA8-4FA4-BB70-1884860CF196}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +58,7 @@ Global
 		{F9383CE9-9022-4F78-8CA3-D74BBD9E2CF9} = {E4FD5FBE-E982-4CF7-99FE-15338E998996}
 		{EF1E8C56-4553-4808-B838-ACA105A5FA74} = {E4FD5FBE-E982-4CF7-99FE-15338E998996}
 		{75133D84-42C7-460F-A5D6-3FD5ECAE459C} = {E4FD5FBE-E982-4CF7-99FE-15338E998996}
+		{2B9FA26C-BBA8-4FA4-BB70-1884860CF196} = {E4FD5FBE-E982-4CF7-99FE-15338E998996}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {03DD1471-8871-41FD-83A8-102432479E9D}

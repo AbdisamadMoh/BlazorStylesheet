@@ -1,28 +1,10 @@
 ﻿@page "/"
 
 <PageTitle>Index</PageTitle>
-<nav class="navbar">
-	<a href="#" class="selected">Home</a>
-	<a href="#">About</a>
-	<a href="#">Blog</a>
-	<a href="#">Portefolio</a>
-	<a href="#">Contact</a>
-</nav>
+
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
 
-@code{
-    [Inject]
-    public BlazorStylesheet.Stylesheet sheet
-    {
-        get; set;
-    }
-        protected override void OnAfterRender(bool firstRender)
-        {
-        sheet.CreateSheet(typeof(Style));
-            base.OnAfterRender(firstRender);
-        }
-}
