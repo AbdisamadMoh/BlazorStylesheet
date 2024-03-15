@@ -1,5 +1,4 @@
 ﻿@inherits LayoutComponentBase
-@inject BlazorStylesheet.Stylesheet sheet
 <PageTitle>BlazorServer</PageTitle>
 
 <div class="page">
@@ -13,25 +12,8 @@
         </div>
 
         <article class="content px-4">
-            <nav class="navbar">
-                <a href="#" class="selected">Home</a>
-                <a href="#">About</a>
-                <a href="#">Blog</a>
-                <a href="#">Portefolio</a>
-                <a href="#">Contact</a>
-            </nav>
+           <NavBar></NavBar>
             @Body
         </article>
     </main>
 </div>
-
-@code{
-
-
-    protected override void OnAfterRender(bool firstRender)
-    {
-        sheet.CreateSheet(typeof(Style));
-
-        base.OnAfterRender(firstRender);
-    }
-}

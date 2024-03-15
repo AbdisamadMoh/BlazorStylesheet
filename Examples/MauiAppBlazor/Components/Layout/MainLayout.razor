@@ -1,5 +1,5 @@
 ﻿@inherits LayoutComponentBase
-
+<RazorStylesheet StyleSheet="typeof(Style)"/>
 <div class="page">
     <div class="sidebar">
         <NavMenu />
@@ -22,32 +22,3 @@
         </article>
     </main>
 </div>
-
-@code{
-
-    [Inject]
-    public BlazorStylesheet.Stylesheet sheet
-    {
-        get; set;
-    }
-    [Inject]
-    public IJSRuntime js
-    {
-        get; set;
-    }
-    protected override void OnAfterRender(bool firstRender)
-    {
-        sheet.CreateSheet(typeof(Style));
-        base.OnAfterRender(firstRender);
-
-        if (firstRender)
-        {
-            sheet["body"] = new StylesheetNET.Element()
-            {
-                BackgroundColor = "red"
-            };
-            sheet.Build();
-        }
-
-    }
-}

@@ -1,30 +1,44 @@
 ﻿using BlazorStylesheet;
 
 using StylesheetNET;
+
 namespace BlazorServer
 {
+    [StylesheetClass]
     public class Style
     {
-        Stylesheet sheet;
-        public Style(Stylesheet stylesheet)
+        [StylesheetProperty]
+        public Stylesheet Stylesheet
         {
-            if (stylesheet == null)
-                throw new ArgumentNullException("stylesheet");
-
-            sheet = stylesheet;
-            NavBar();
-            NavBar_a();
-            NavBar_a_Selected();
-            NavBar_a_Selected_Hover();
-
-            Animation();
-            //These r examples only
-            ForMobile();
-            ForTablet();
-            ForDesktop();
-
-            sheet.Build();
+            get;
+            set;
         }
+        [StylesheetProperty]
+        private Stylesheet Stylesheet1
+        {
+            get;
+            set;
+        }
+        Stylesheet sheet;
+        //public Style(Stylesheet stylesheet)
+        //{
+        //    if (stylesheet == null)
+        //        throw new ArgumentNullException("stylesheet");
+
+        //    sheet = stylesheet;
+        //    NavBar();
+        //    NavBar_a();
+        //    NavBar_a_Selected();
+        //    NavBar_a_Selected_Hover();
+
+        //    Animation();
+        //    //These r examples only
+        //    ForMobile();
+        //    ForTablet();
+        //    ForDesktop();
+
+        //   // sheet.Build();
+        //}
 
         private void NavBar()
         {
@@ -66,7 +80,7 @@ namespace BlazorServer
             sheet[".navbar a.selected"] = new Element()
             {
                 BackgroundColor = "#17B1EA",
-               BorderRadius = "10px"
+                BorderRadius = "10px"
 
             };
         }
@@ -143,5 +157,5 @@ namespace BlazorServer
         }
     }
 
-    
+
 }

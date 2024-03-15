@@ -3,6 +3,8 @@ using Microsoft.JSInterop;
 
 using StylesheetNET;
 
+using System.Reflection;
+
 namespace BlazorStylesheet
 {
     public static class SetUp
@@ -17,7 +19,6 @@ namespace BlazorStylesheet
             if (services == null)
                 throw new ArgumentNullException(nameof(services));
             services.AddScoped<Stylesheet>();
-
         }
     }
 
@@ -45,11 +46,20 @@ namespace BlazorStylesheet
             var expectedConstructor = sheet.GetConstructor( new[] { this.GetType() });
             if (expectedConstructor == null)
             {
-                throw new ArgumentException($"STYLE TYPE OBJECT PASSED IS MISSING REQUIRED CONSTRUCTOR.\nIT SHOULD HAVE A CONSTRUCTOR LIKE 'public {sheet.Name}(Stylesheet sheet)....)' ");
+              //  throw new ArgumentException($"STYLE TYPE OBJECT PASSED IS MISSING REQUIRED CONSTRUCTOR.\nIT SHOULD HAVE A CONSTRUCTOR LIKE 'public {sheet.Name}(Stylesheet sheet)....)' ");
             }
-            Activator.CreateInstance(sheet, this);
+            var styleClass = Activator.CreateInstance(sheet);
+            var properties = GetProperties(styleClass.GetType());
+            var sheetProperties = properties.Where(x => x.GetCustomAttributes(typeof(StylesheetProperty), true).Length>0);
+            foreach (var prop in sheetProperties)
+            {
+                prop.SetValue(styleClass, this);
+            }
         }
-
+        private IEnumerable<PropertyInfo> GetProperties(Type type)
+        {
+            return type.GetProperties( BindingFlags.Public|BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
+        }
         /// <summary>
         /// Compiles the CSS stylesheet and sends to the client. 
         /// </summary>
@@ -73,9 +83,9 @@ namespace BlazorStylesheet
         /// <summary>
         /// Hides the loader
         /// </summary>
-        public async void HideLoader()
+        public void HideLoader()
         {
-            await _jSRuntime.InvokeVoidAsync("removeLoader");
+            _jSRuntime.InvokeVoidAsync("removeLoader");
         }
 
     }

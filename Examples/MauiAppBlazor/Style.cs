@@ -30,7 +30,6 @@ namespace MauiAppBlazor
         {
             sheet[".navbar"] = new StylesheetNET.Element()
             {
-
                 Position = PositionOptions.Relative,
                 Width = "590px",
                 Height = "60px",
