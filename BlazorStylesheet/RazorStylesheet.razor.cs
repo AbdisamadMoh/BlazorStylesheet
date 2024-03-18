@@ -2,9 +2,7 @@
 
 namespace BlazorStylesheet
 {
-    /// <summary>
-    /// jjjj
-    /// </summary>
+   
     public partial class RazorStylesheet
     {
         public RazorStylesheet()
