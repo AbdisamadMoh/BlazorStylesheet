@@ -22,6 +22,10 @@ We can add it from **nuget**, or directly referencing **BlazorStylesheet.dll**
 
 Open `nuget` package manager in **visual studio** and paste the following code.
 
+```csharp
+Install-Package BlazorStylesheet -Version 1.0.0
+```
+
 1. After installation done, open the file **Program.cs** or **Startup.cs** or **MauiProgram.cs** in your blazor project.
    
    **Add the following code**
@@ -42,7 +46,7 @@ Open `nuget` package manager in **visual studio** and paste the following code.
 
 3. Now open **_Layout.cshtml** in **blazor server** which you can find it under **Shared** folder, or **index.html** in **blazor webassembly** and **MAUI** which you can find it under **wwwroot** folder.
    
-   **Add the following html tags in the <head>...</head> before any script or styles.**
+   **Add the following html tags in the head before any script or styles.**
    
    ```html
    <link href="_content/BlazorStylesheet/fix.min.css" rel="stylesheet" />
@@ -77,7 +81,7 @@ Open `nuget` package manager in **visual studio** and paste the following code.
 
 in our **MainLayout.razor**, let's inject the **main stylesheet** and call it `sheet`. Then we can use `sheet` property to write our CSS. You can do this in every component you want to access the **main stylesheet**.
 
-Now copy the following code and paste in **MainLayout.razor**.
+Now copy the following code and paste in **MainLayout.razor** C# code.
 
 ```csharp
  [Inject]
@@ -169,7 +173,7 @@ Well, lets add a method and name it `Setup` and decorate it with `[StylesheetMet
 [StylesheetMethod]
 private void Setup()
 {
-    
+
 }
 ```
 
@@ -269,8 +273,6 @@ Now build your application and refresh the browser. Your website body should be 
 > ```
 > 
 > ![image](https://imgur.com/ZratGZV.png)
-
-
 
 ##### If everything is going right, let's write the CSS for our `Navbar.razor`
 
@@ -422,13 +424,9 @@ Here, I haven't covered a full tutorial on how to write CSS in C# using **Blazor
 
 **Repository**: https://github.com/AbdisamadMoh/Stylesheet.NET
 
-
-
 ##### When and how to write CSS in components?
 
 With **BlazorStylesheet**, we have the freedom to write our CSS anywhere in our Blazor project. This is handy for keeping styles specific to a particular component and updating our CSS in realtime. But remember, for bigger styles or styles used across your whole application, it's generally better to organize them in separate C# classes. This makes your code easier to manage.
-
-
 
 Unlike classes, which we can access the **main stylesheet** through attribute decoration which the injection is managed by the **BlazorStylesheet** itself. In **components**, we can access the **main stylesheet** through injection provided by the **Dependency Injection (DI)** container provided by .NET.
 
@@ -457,8 +455,6 @@ Then you can use `sheet `in your component.
 In **components** or other places where **BlazorStylesheet** doesn't manage, you have to call `sheet.Build()` when you change something in the stylesheet to reflect the changes.
 
 > You don't need to call  `StateHasChanged()` as that has no effect on **BlazorStylesheet**.
-
-
 
 ### Why we need...
 
@@ -489,8 +485,6 @@ Both solutions lies in `fix.css` file you added.
 <html lang="en" loading="loader">
 
 > **BlazorStylesheet** does not add any element to the DOM to create the loader. So you should not worry about your DOM being modified.
-
-
 
 ## More...
 
