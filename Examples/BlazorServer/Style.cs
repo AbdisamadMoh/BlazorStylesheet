@@ -7,39 +7,14 @@ namespace BlazorServer
     [StylesheetClass]
     public class Style
     {
-        [StylesheetProperty]
-        public Stylesheet Stylesheet
+       [StylesheetProperty]
+        private Stylesheet sheet
         {
             get;
             set;
         }
-        [StylesheetProperty]
-        private Stylesheet Stylesheet1
-        {
-            get;
-            set;
-        }
-        Stylesheet sheet;
-        //public Style(Stylesheet stylesheet)
-        //{
-        //    if (stylesheet == null)
-        //        throw new ArgumentNullException("stylesheet");
 
-        //    sheet = stylesheet;
-        //    NavBar();
-        //    NavBar_a();
-        //    NavBar_a_Selected();
-        //    NavBar_a_Selected_Hover();
-
-        //    Animation();
-        //    //These r examples only
-        //    ForMobile();
-        //    ForTablet();
-        //    ForDesktop();
-
-        //   // sheet.Build();
-        //}
-
+        [StylesheetMethod]
         private void NavBar()
         {
             sheet[".navbar"] = new Element()
@@ -55,10 +30,10 @@ namespace BlazorServer
                 FontSize = "0"
             };
         }
-
+         [StylesheetMethod]
         private void NavBar_a()
         {
-            sheet[".navbar a"] = new Element()
+            sheet[".navbar > a"] = new Element()
             {
                 LineHeight = "50px",
                 Height = "100%",
@@ -74,19 +49,20 @@ namespace BlazorServer
                 Cursor = CursorOptions.Pointer
             };
         }
-
+         [StylesheetMethod]
         private void NavBar_a_Selected()
         {
-            sheet[".navbar a.selected"] = new Element()
+            sheet[".navbar > a.selected"] = new Element()
             {
                 BackgroundColor = "#17B1EA",
                 BorderRadius = "10px"
 
             };
         }
+         [StylesheetMethod]
         private void NavBar_a_Selected_Hover()
         {
-            sheet[".navbar a"] = new ElementHover()
+            sheet[".navbar > a"] = new ElementHover()
             {
                 BackgroundColor = "#17B1EA",
                 BorderRadius = "10px",
@@ -96,7 +72,7 @@ namespace BlazorServer
 
             };
         }
-
+         [StylesheetMethod]
         void Animation()
         {
             sheet["h1"] = new Element()
@@ -120,6 +96,7 @@ namespace BlazorServer
         }
         //Media Query for Mobile Devices
         // @media (max-width: 480px) 
+         [StylesheetMethod]
         void ForMobile()
         {
             sheet[AtRuleType.MediaQuery] = new MediaQuery(new AtRule().MaxWidth("480px"))
@@ -132,6 +109,7 @@ namespace BlazorServer
         }
         // Media Query for low resolution  Tablets, Ipads
         // @media (min-width: 481px) and (max-width: 767px)
+         [StylesheetMethod]
         void ForTablet()
         {
             sheet[AtRuleType.MediaQuery] = new MediaQuery(new AtRule().MinWidth("481px").And.MaxWidth("767px"))
@@ -145,6 +123,7 @@ namespace BlazorServer
 
         // Media Query for Laptops and Desktops
         // @media (min-width: 1025px) and (max-width: 1280px)
+         [StylesheetMethod]
         void ForDesktop()
         {
             sheet[AtRuleType.MediaQuery] = new MediaQuery(new AtRule().MinWidth("1025px").And.MaxWidth("1280px"))
@@ -156,6 +135,4 @@ namespace BlazorServer
             };
         }
     }
-
-
 }

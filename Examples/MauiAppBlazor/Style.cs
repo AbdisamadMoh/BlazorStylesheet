@@ -1,35 +1,26 @@
 ﻿using BlazorStylesheet;
 
 using StylesheetNET;
+
+using Element = StylesheetNET.Element;
+
 namespace MauiAppBlazor
 {
+    [StylesheetClass]
     public class Style
     {
-        Stylesheet sheet;
-        public Style(Stylesheet stylesheet)
+        [StylesheetProperty]
+        public Stylesheet sheet
         {
-            if (stylesheet == null)
-                throw new ArgumentNullException("stylesheet");
-
-            sheet = stylesheet;
-            NavBar();
-            NavBar_a();
-            NavBar_a_Selected();
-            NavBar_a_Selected_Hover();
-
-            Animation();
-            //These r examples only
-            ForMobile();
-            ForTablet();
-            ForDesktop();
-
-            sheet.Build();
+            get;
+            set;
         }
-
+        [StylesheetMethod]
         private void NavBar()
         {
-            sheet[".navbar"] = new StylesheetNET.Element()
+            sheet[".navbar"] = new Element()
             {
+
                 Position = PositionOptions.Relative,
                 Width = "590px",
                 Height = "60px",
@@ -40,10 +31,10 @@ namespace MauiAppBlazor
                 FontSize = "0"
             };
         }
-
+        [StylesheetMethod]
         private void NavBar_a()
         {
-            sheet[".navbar a"] = new StylesheetNET.Element()
+            sheet[".navbar a"] = new Element()
             {
                 LineHeight = "50px",
                 Height = "100%",
@@ -59,19 +50,20 @@ namespace MauiAppBlazor
                 Cursor = CursorOptions.Pointer
             };
         }
-
+        [StylesheetMethod]
         private void NavBar_a_Selected()
         {
-            sheet[".navbar a.selected"] = new StylesheetNET.Element()
+            sheet[".navbar > a.selected"] = new Element()
             {
                 BackgroundColor = "#17B1EA",
-               BorderRadius = "10px"
+                BorderRadius = "10px"
 
             };
         }
+        [StylesheetMethod]
         private void NavBar_a_Selected_Hover()
         {
-            sheet[".navbar a"] = new StylesheetNET.ElementHover()
+            sheet[".navbar > a"] = new ElementHover()
             {
                 BackgroundColor = "#17B1EA",
                 BorderRadius = "10px",
@@ -81,10 +73,10 @@ namespace MauiAppBlazor
 
             };
         }
-
+        [StylesheetMethod]
         void Animation()
         {
-            sheet["h1"] = new StylesheetNET.Element()
+            sheet["h1"] = new Element()
             {
                 AnimationName = "pulse",
                 AnimationDuration = "2s",
@@ -105,11 +97,12 @@ namespace MauiAppBlazor
         }
         //Media Query for Mobile Devices
         // @media (max-width: 480px) 
+        [StylesheetMethod]
         void ForMobile()
         {
             sheet[AtRuleType.MediaQuery] = new MediaQuery(new AtRule().MaxWidth("480px"))
             {
-                ["body"] = new StylesheetNET.Element()
+                ["body"] = new Element()
                 {
                     BackgroundColor = "red"
                 }
@@ -117,11 +110,12 @@ namespace MauiAppBlazor
         }
         // Media Query for low resolution  Tablets, Ipads
         // @media (min-width: 481px) and (max-width: 767px)
+        [StylesheetMethod]
         void ForTablet()
         {
             sheet[AtRuleType.MediaQuery] = new MediaQuery(new AtRule().MinWidth("481px").And.MaxWidth("767px"))
             {
-                ["body"] = new StylesheetNET.Element()
+                ["body"] = new Element()
                 {
                     BackgroundColor = "yellow"
                 }
@@ -130,17 +124,16 @@ namespace MauiAppBlazor
 
         // Media Query for Laptops and Desktops
         // @media (min-width: 1025px) and (max-width: 1280px)
+        [StylesheetMethod]
         void ForDesktop()
         {
             sheet[AtRuleType.MediaQuery] = new MediaQuery(new AtRule().MinWidth("1025px").And.MaxWidth("1280px"))
             {
-                ["body"] = new StylesheetNET.Element()
+                ["body"] = new Element()
                 {
                     BackgroundColor = "green"
                 }
             };
         }
     }
-
-    
 }

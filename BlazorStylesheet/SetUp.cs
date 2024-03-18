@@ -35,31 +35,17 @@ namespace BlazorStylesheet
             _jSRuntime = jSRuntime;
             HideLoader();
         }
-
+        private readonly Refactory _factory = new Refactory();
         /// <summary>
-        /// Creates Styelsheet from the type object passed.
+        /// Creates Styelsheet from the stlylesheet class object passed. The type should be a valid stylehseet class that have atleast required attributes.
         /// </summary>
         /// <param name="sheet">Stylesheet type object</param>
         /// <exception cref="ArgumentException"></exception>
         public void CreateSheet(Type sheet)
         {
-            var expectedConstructor = sheet.GetConstructor( new[] { this.GetType() });
-            if (expectedConstructor == null)
-            {
-              //  throw new ArgumentException($"STYLE TYPE OBJECT PASSED IS MISSING REQUIRED CONSTRUCTOR.\nIT SHOULD HAVE A CONSTRUCTOR LIKE 'public {sheet.Name}(Stylesheet sheet)....)' ");
-            }
-            var styleClass = Activator.CreateInstance(sheet);
-            var properties = GetProperties(styleClass.GetType());
-            var sheetProperties = properties.Where(x => x.GetCustomAttributes(typeof(StylesheetProperty), true).Length>0);
-            foreach (var prop in sheetProperties)
-            {
-                prop.SetValue(styleClass, this);
-            }
+          _factory.CreateStylesheet(sheet, this);
         }
-        private IEnumerable<PropertyInfo> GetProperties(Type type)
-        {
-            return type.GetProperties( BindingFlags.Public|BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
-        }
+       
         /// <summary>
         /// Compiles the CSS stylesheet and sends to the client. 
         /// </summary>
