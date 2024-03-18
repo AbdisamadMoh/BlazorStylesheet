@@ -424,7 +424,7 @@ Here, I haven't covered a full tutorial on how to write CSS in C# using **Blazor
 
 **Repository**: https://github.com/AbdisamadMoh/Stylesheet.NET
 
-##### When and how to write CSS in components?
+### When and how to write CSS in components?
 
 With **BlazorStylesheet**, we have the freedom to write our CSS anywhere in our Blazor project. This is handy for keeping styles specific to a particular component and updating our CSS in realtime. But remember, for bigger styles or styles used across your whole application, it's generally better to organize them in separate C# classes. This makes your code easier to manage.
 
