@@ -1,6 +1,6 @@
 # BlazorStyleSheet
 
-**BlazorStyleSheet** allows blazor (**Blazor server**, **webassembly** and **MAUI** blazor) developers to write their CSS styles directly in C# without the need for external stylesheets.
+**BlazorStyleSheet** is a powerful CSS styling engine expertly crafted for Blazor Server, WebAssembly, and MAUI applications. It empowers you to define **scoped, maintainable styles directly within your C# code, completely eliminating the need for external CSS files.**
 
 **BlazorStyleSheet** is built on top of **Stylesheet.NET**.
 
